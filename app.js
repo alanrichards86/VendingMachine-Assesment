@@ -18,8 +18,7 @@ app.set('port', (process.env.PORT || 3000));
 
 app.use(router);
 
-if (require.main === module) {
+
   app.listen(app.get('port'), function() {
     console.log("server running on localhost:" + app.get('port'));
   });
-}
