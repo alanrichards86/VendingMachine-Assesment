@@ -1,24 +1,15 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-
-const router = require("./routes/router.js");
-
-//Express App Initialization
-const app = express();
-
-//Body Parser
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
-app.use(bodyParser.json());
-
-
-//Port setup
-app.set('port', (process.env.PORT || 3000));
+const express         = require("express");
+const bodyParser      = require("body-parser");
+const mocha           = require("mocha");
+const router         = require("./routes/customers.js");
+const app             = express();
 
 app.use(router);
 
-
-  app.listen(app.get('port'), function() {
-    console.log("server running on localhost:" + app.get('port'));
+if(require.main === module){
+  app.listen(3000, function(){
+    console.log("You are on port 3000 !");
   });
+}
+
+module.exports = app;
